@@ -1,0 +1,11 @@
+/* Theme: Nord - Minimal */
+@define-color background      rgba(46, 52, 64, 0.7);
+@define-color text            #d8dee9;
+@define-color workspace-bg   rgba(46, 52, 64, 0.7);
+@define-color workspace-fg   #d8dee9;
+@define-color workspace-empty-fg #4c566a;
+@define-color module-bg      rgba(46, 52, 64, 0.6);
+@define-color accent          #88c0d0;
+@define-color good            #a3be8c;
+@define-color warning         #ebcb8b;
+@define-color critical        #bf616a;

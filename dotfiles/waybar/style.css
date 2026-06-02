@@ -1,0 +1,383 @@
+/* =========================================
+   WAYBAR — Forge
+   Hot metal cooling. Rust is heat, everything else is steel.
+   JetBrainsMono · Parchment tooltip
+   ========================================= */
+
+/* ----------- Raw Palette (from forge.rasi) ----------- */
+/* bg:      #1c1a18   bg-alt:  #242220   bg-warm: #2e2520 */
+/* fg:      #d4c9b8   fg-dim:  #6b5f52                    */
+/* accent:  #c46828   active:  #8a6a3a   urgent:  #a83428 */
+/* select:  #3d2810                                        */
+
+/* ----------- Semantic Tokens ----------- */
+@define-color background            #1c1a18;
+@define-color surface               #242220;
+@define-color surface-hover         #2e2520;
+@define-color border                #3d2810;
+@define-color border-light          #2a2018;
+
+@define-color text                  #d4c9b8;
+@define-color text-muted            #a09282;
+
+/* Rust — the single hot note against cold steel */
+@define-color accent                #c46828;
+@define-color accent-soft           #3d2810;
+@define-color accent-fg             #1c1a18;
+
+/* Semantic status — forge-natural hues */
+@define-color red                   #a83428;
+@define-color yellow                #8a6a3a;
+@define-color green                 #4a6a2e;
+@define-color blue                  #3a5a7a;
+
+/* Workspace */
+@define-color workspace-active-bg   @accent;
+@define-color workspace-active-fg   #1c1a18;
+@define-color workspace-fg          #6b5f52;
+@define-color workspace-empty-fg    #3a3028;
+
+/* Battery */
+@define-color battery-warning       #8a6a3a;
+@define-color battery-charging      #4a6a2e;
+@define-color battery-plugged       #3a5a7a;
+
+
+/* =========================================
+   Base Reset
+   ========================================= */
+* {
+  font-family: "JetBrainsMono Nerd Font", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  min-height: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================
+   Waybar Window
+   ========================================= */
+window#waybar {
+  background-color: transparent;
+}
+
+window#waybar > box {
+  background-color: transparent;
+  padding: 4px 10px;
+  color: @text;
+  /* Rust underline — the forge's ruled edge */
+  border-bottom: 0px solid @border;
+}
+
+
+/* =========================================
+   Tooltip — Forge style
+   Dark panel · rust top accent
+   ========================================= */
+tooltip {
+  border: 1px solid @border;
+  border-top: 2px solid @accent;
+  border-radius: 0 0 8px 8px;
+  background-color: #242220;
+  padding: 0;
+}
+
+tooltip window {
+  background-color: #242220;
+}
+
+tooltip label {
+  font-family: "Inter", "Helvetica Neue", "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: @text-muted;
+  background-color: transparent;
+  padding: 8px 14px;
+  margin: 0;
+}
+
+
+/* =========================================
+   Shared Module Base
+   ========================================= */
+.module {
+  background: @surface;
+  border-radius: 6px;
+  padding: 3px 12px;
+  color: @text;
+  font-weight: 700;
+}
+
+.module:hover {
+  background: @surface-hover;
+}
+
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes pulse {
+  50%  { color: @red; }
+  100% { color: @red; }
+}
+
+/* Rust flicker — iron cooling in open air */
+@keyframes forge-glow {
+  0%   { color: @accent; }
+  50%  { color: @yellow; }
+  100% { color: @accent; }
+}
+
+
+/* =========================================
+   Workspaces
+   ========================================= */
+#workspaces {
+  background: @surface;
+  border-radius: 6px;
+  padding: 2px 3px;
+}
+
+#workspaces button {
+  border-radius: 5px;
+  padding: 0 10px;
+  background: transparent;
+  color: @workspace-fg;
+  transition: background 120ms ease, color 120ms ease;
+  box-shadow: none;
+  font-weight: 700;
+}
+
+#workspaces button.active {
+  background: @workspace-active-bg;
+  color: @workspace-active-fg;
+}
+
+#workspaces button.empty {
+  color: @workspace-empty-fg;
+}
+
+#workspaces button:hover {
+  background: @surface-hover;
+  color: @text;
+  text-shadow: none;
+}
+
+#workspaces button.urgent {
+  animation: pulse 0.4s linear infinite alternate;
+}
+
+
+/* =========================================
+   Window Title
+   ========================================= */
+#window {
+  background: @surface;
+  border-radius: 6px;
+  padding: 3px 16px;
+  color: @text;
+  font-weight: 700;
+}
+
+
+/* =========================================
+   System Info — seamless segmented group
+   Cold iron ridge aesthetic
+   ========================================= */
+#cpu,
+#memory,
+#custom-cpuinfo {
+  background: @surface;
+  padding: 3px 9px;
+  border-radius: 0;
+}
+
+#custom-cpuinfo {
+  border-radius: 6px 0 0 6px;
+  padding-left: 13px;
+  margin-left: 4px;
+}
+
+#cpu {
+  border-left: 1px solid @border;
+  border-right: 1px solid @border;
+}
+
+#memory {
+  border-radius: 0 6px 6px 0;
+  padding-right: 13px;
+  margin-right: 4px;
+}
+
+
+/* =========================================
+   Media (MPRIS) — rust accent pill
+   ========================================= */
+#mpris {
+  background: @accent;
+  color: @accent-fg;
+  border-radius: 6px;
+  padding: 3px 13px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+#mpris.paused {
+  background: @accent-soft;
+  color: @accent;
+  border-radius: 6px;
+}
+
+#mpris.stopped {
+  background: @surface;
+  color: @text-muted;
+  border-radius: 6px;
+}
+
+
+/* =========================================
+   Status Row — seamless segmented group
+   wireplumber ← left cap
+   backlight, bluetooth, network, battery ← middle segments
+   power-profiles-daemon ← right cap
+   ========================================= */
+#wireplumber,
+#backlight,
+#bluetooth,
+#network,
+#battery,
+#power-profiles-daemon {
+  background: @surface;
+  padding: 3px 9px;
+  border-radius: 0;
+  font-weight: 700;
+}
+
+#wireplumber {
+  border-radius: 6px 0 0 6px;
+  padding-left: 13px;
+  margin-left: 4px;
+}
+
+/* battery no longer the right cap — flush middle segment */
+#battery {
+  border-radius: 0;
+  padding-right: 9px;
+  margin-right: 0;
+}
+
+/* power-profiles-daemon — right cap, owns the margin */
+#power-profiles-daemon {
+  border-radius: 0 6px 6px 0;
+  border-left: 1px solid @border;
+  padding: 3px 13px 3px 9px;
+  margin-right: 4px;
+  font-size: 13px;   /* emoji render better slightly larger */
+}
+
+#backlight,
+#bluetooth,
+#network,
+#battery {
+  border-left: 1px solid @border;
+}
+
+#battery.warning  { color: @battery-warning; }
+#battery.charging { color: @battery-charging; }
+#battery.plugged  { color: @battery-plugged; }
+#battery.critical { animation: pulse 0.4s linear infinite alternate; }
+
+#network.disconnected { color: @red; }
+
+/* Smoldering ember for live bluetooth */
+#bluetooth.connected { color: @yellow; }
+
+/* Power profile states — forge palette semantics:
+   🍃 power-saver → green  (forge at rest, heat stored)
+   ⚖️  balanced    → muted  (no comment, just work)
+   🔥 performance → rust + glow (forge is running hot) */
+#power-profiles-daemon.power-saver {
+  color: @green;
+}
+
+#power-profiles-daemon.balanced {
+  color: @text-muted;
+}
+
+#power-profiles-daemon.performance {
+  color: @accent;
+  animation: forge-glow 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   Clock + Idle Inhibitor
+   ========================================= */
+#clock {
+  background: @surface;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: 0;
+}
+
+#clock.time {
+  border-radius: 6px 0 0 6px;
+  padding: 3px 10px 3px 14px;
+}
+
+#idle_inhibitor {
+  background: @surface;
+  border-radius: 0 6px 6px 0;
+  padding: 3px 14px 3px 9px;
+  border-left: 1px solid @border;
+  color: @text-muted;
+}
+
+/* Active idle inhibitor — the forge is still hot */
+#idle_inhibitor.activated {
+  color: @accent;
+  animation: forge-glow 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   System Tray
+   ========================================= */
+#tray {
+  background: @surface;
+  border-radius: 6px;
+  padding: 3px 10px;
+  margin-right: 4px;
+}
+
+#tray > .passive        { -gtk-icon-effect: dim; }
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  color: @red;
+}
+
+
+/* =========================================
+   Custom modules
+   ========================================= */
+#custom-weather {
+  background: @accent-soft;
+  color: @accent;
+  border-radius: 6px;
+  padding: 3px 12px;
+  font-weight: 700;
+}
+
+#custom-updates {
+  background: @surface;
+  color: @text-muted;
+  border-radius: 6px;
+  padding: 3px 12px;
+}
+
+#custom-updates.updates-available {
+  color: @accent;
+}

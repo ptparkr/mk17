@@ -1,0 +1,77 @@
+/* =======================================================
+   ROFI — Forge  power-menu
+   Cold steel, rust selection. Readable buttons.
+   ======================================================= */
+
+* {
+    bg:         #1c1a18;   /* cold forge dark            */
+    surface:    #564f49;   /* lifted — +35 per channel   */
+    fg:         #d4c9b8;   /* aged parchment             */
+    muted:      #6b5f52;   /* cooled ash                 */
+    border:     #4a3d2e;   /* rust shadow, lighter       */
+    select:     #c46828;   /* rust — the only heat       */
+    select-bg:  #3d2810;   /* rust shadow fill           */
+    select-fg:  #f0e0c8;   /* warm parchment on rust bg  */
+}
+
+window {
+    location:             northeast;
+    anchor:               north;
+    x-offset:             -6px;
+    y-offset:             8px;
+    width:                190px;
+    padding:              0;
+    spacing:              0;
+    border:               3px 0px 0px 0px;
+    border-radius:        10px;
+    border-color:         @select;
+    background-color:     @bg;
+    children:             [ mainbox ];
+}
+
+mainbox {
+    spacing:              0;
+    padding:              0;
+    margin:               0;
+    background-color:     @bg;
+    text-color:           @fg;
+    children:             [ listview ];
+}
+
+listview {
+    border:               0px;
+    lines:                6;
+    dynamic:              false;
+    fixed-height:         true;
+    cycle:                false;
+    layout:               vertical;
+    reverse:              false;
+    spacing:              3px;
+    padding:              6px;
+    background-color:     @bg;
+    scrollbar:            false;
+}
+
+element {
+    padding:              8px 14px;
+    cursor:               pointer;
+    background-color:     @surface;
+    text-color:           @fg;
+    border-radius:        7px;
+    margin:               0;
+}
+
+element selected.normal {
+    background-color:     @select-bg;
+    text-color:           @select-fg;
+    border:               0px 0px 0px 2px;
+    border-color:         @select;
+}
+
+element-text {
+    padding:              0 6px;
+    cursor:               inherit;
+    background-color:     inherit;
+    text-color:           inherit;
+    vertical-align:       0.5;
+}

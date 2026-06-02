@@ -1,0 +1,301 @@
+/* =======================================================
+   WAYBAR — Forge Dark
+   ======================================================= */
+
+/* ----------- Colors ----------- */
+@define-color red             #9c2a1e;
+@define-color yellow          #b88c28;
+@define-color green           #4a6a2e;
+@define-color blue            #3a5a7a;
+
+/* ----------- Custom ----------- */
+@define-color background            #1a1a1a;
+@define-color text                  #e0e0e0;
+@define-color muted                 #888888;
+
+@define-color workspace-bg          #2a2a2a;
+@define-color workspace-fg          #e0e0e0;
+@define-color workspace-empty-fg    #555555;
+@define-color workspace-active-bg   #b85e1e;
+@define-color workspace-active-fg   #f2ede6;
+
+@define-color module-bg             #2a2a2a;
+@define-color module-bg-hover       #3a3a3a;
+
+@define-color power-bg              #9c2a1e;
+@define-color battery-warning       #b88c28;
+@define-color battery-charging      #4a6a2e;
+@define-color battery-plugged       #3a5a7a;
+
+@define-color mpris-bg              #b85e1e;
+@define-color mpris-fg              #f2ede6;
+
+@define-color border                #444444;
+
+
+/* =========================================
+   Base Reset
+   ========================================= */
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+  font-weight: bold;
+  min-height: 0;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* =========================================
+   Tooltip
+   ========================================= */
+tooltip {
+  border: 1.5px solid @border;
+  border-top: 2px solid #b85e1e;
+  border-radius: 0 0 8px 8px;
+  background-color: #252525;
+}
+
+tooltip window {
+  background-color: #252525;
+}
+
+tooltip label {
+  color: @muted;
+  background-color: #252525;
+  margin: 3px;
+  font-weight: normal;
+}
+
+
+/* =========================================
+   Shared Module
+   ========================================= */
+.module {
+  background: @module-bg;
+  padding: 4px 8px;
+}
+
+.module:hover {
+  background: @module-bg-hover;
+}
+
+
+/* =========================================
+   Window
+   ========================================= */
+window#waybar > box {
+  margin-bottom: 0px;
+  color: @text;
+  padding: 2px;
+  border-bottom: 1px solid @border;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+
+/* =========================================
+   Animations
+   ========================================= */
+@keyframes pulse {
+  50%  { color: @red; }
+  100% { color: @red; }
+}
+
+@keyframes forge-glow {
+  0%   { color: #b85e1e; }
+  50%  { color: #b88c28; }
+  100% { color: #b85e1e; }
+}
+
+
+/* =========================================
+   Workspaces
+   ========================================= */
+#workspaces {
+  padding: 0px;
+  background: @background;
+  border-radius: 8px;
+  color: @workspace-fg;
+}
+
+#workspaces button {
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 0 10px;
+  transition: none;
+}
+
+#workspaces button.active {
+  color: @workspace-active-fg;
+  background: @workspace-active-bg;
+  text-shadow: none;
+}
+
+#workspaces button:hover {
+  background: @module-bg-hover;
+  text-shadow: none;
+}
+
+#workspaces button.urgent {
+  animation-name: pulse;
+  animation-duration: 0.4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#workspaces button.empty {
+  color: @workspace-empty-fg;
+}
+
+
+/* =========================================
+   System Info
+   ========================================= */
+#cpu, #memory, #custom-cpuinfo {
+  padding: 0;
+  background: @module-bg;
+}
+
+#custom-cpuinfo {
+  border-radius: 8px 0px 0px 8px;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+#cpu {
+  border-left: 1px solid @border;
+  border-right: 1px solid @border;
+}
+
+#memory {
+  border-radius: 0px 8px 8px 0px;
+  margin-right: 20px;
+  padding-right: 10px;
+}
+
+
+/* =========================================
+   Window Title
+   ========================================= */
+#window {
+  border-radius: 8px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background: @background;
+  color: @text;
+}
+
+
+/* =========================================
+   Media (MPRIS) — rust pill
+   ========================================= */
+#mpris {
+  background: @mpris-bg;
+  color: @mpris-fg;
+  border-radius: 8px;
+  padding: 0 16px;
+  margin-left: 8px;
+}
+
+
+/* =========================================
+   Status Row
+   ========================================= */
+#wireplumber, #backlight, #bluetooth, #network, #battery {
+  background-color: @module-bg;
+}
+
+#wireplumber {
+  border-radius: 8px 0px 0px 8px;
+  margin-left: 10px;
+}
+
+#backlight,
+#bluetooth,
+#network {
+  border-left: 1px solid @border;
+}
+
+/* Battery */
+#battery {
+  border-radius: 0px 8px 8px 0px;
+  margin-right: 15px;
+}
+
+#battery.critical {
+  animation: pulse 0.4s linear infinite alternate;
+}
+
+#battery.warning {
+  color: @battery-warning;
+}
+
+#battery.charging {
+  color: @battery-charging;
+  animation: none;
+}
+
+#battery.plugged {
+  color: @battery-plugged;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+/* Bronze tarnish for live bluetooth */
+#bluetooth.connected {
+  color: @yellow;
+}
+
+
+/* =========================================
+   Clock + Idle Inhibitor
+   ========================================= */
+#clock {
+  font-weight: bold;
+  background: @module-bg;
+}
+
+#clock.time {
+  padding-left: 20px;
+  border-radius: 8px 0 0 8px;
+}
+
+#idle_inhibitor {
+  border-radius: 0 8px 8px 0;
+  padding-right: 20px;
+  background: @module-bg;
+  border-left: 1px solid @border;
+  color: @muted;
+}
+
+#idle_inhibitor.activated {
+  color: #b85e1e;
+  animation: forge-glow 2.4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   System Tray
+   ========================================= */
+#tray {
+  background: @module-bg;
+  border-radius: 8px;
+  padding: 0 10px;
+  margin-right: 20px;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+  color: @red;
+}

@@ -1,0 +1,11 @@
+/* Theme: Dracula - Minimal */
+@define-color background      rgba(40, 42, 54, 0.7);
+@define-color text            #f8f8f2;
+@define-color workspace-bg   rgba(40, 42, 54, 0.7);
+@define-color workspace-fg   #f8f8f2;
+@define-color workspace-empty-fg #6272a4;
+@define-color module-bg      rgba(40, 42, 54, 0.6);
+@define-color accent          #bd93f9;
+@define-color good            #50fa7b;
+@define-color warning         #f1fa8c;
+@define-color critical        #ff5555;

@@ -1,0 +1,11 @@
+/* Theme: Kanagawa - Minimal */
+@define-color background      rgba(31, 31, 40, 0.7);
+@define-color text            #c5c6c8;
+@define-color workspace-bg   rgba(31, 31, 40, 0.7);
+@define-color workspace-fg   #c5c6c8;
+@define-color workspace-empty-fg #6a6e7a;
+@define-color module-bg      rgba(31, 31, 40, 0.6);
+@define-color accent          #7e9cd8;
+@define-color good            #87d68d;
+@define-color warning         #c3b26b;
+@define-color critical        #c4746e;

@@ -1,0 +1,141 @@
+[global]
+
+    ### Display ###
+
+    # Display notifications on monitor with mouse focus
+    follow = keyboard
+    # Set {width}x{height} and {x_pos}+{y_pos}
+    geometry = "380x8-10+36"
+    # Show number of hidden notifications
+    indicate_hidden = yes
+    # Shrink window if smaller than width
+    shrink = no
+    # Set transparency of notifications
+    transparency = 0
+    # Height of whole notification
+    notification_height = 0
+    # Height of seperators
+    separator_height = 1
+    # Text and seperator padding
+    padding = 12
+    # Horizontal padding
+    horizontal_padding = 12
+    # Width of frame around window
+    frame_width = 2
+    # Color of frame around window
+    frame_color = "#c46828"
+    # Sort messages by urgency
+    sort = yes
+    # Idle seconds
+    idle_threshold = 0
+
+    ### Text ###
+
+    # Set font of notifications
+    font = JetBrainsMono Nerd Font 10
+    # Spacing between lines
+    line-height = 0
+    # Markup parsing
+    markup = full
+    # Message format:
+    # %a - appname
+    # %s - summary
+    # %b - body
+    # %i - iconname (with path)
+    # %I - iconname (without path)
+    # %p - progress value (if set)
+    # %n - progress value no extra characters
+    # %% - literal %
+    format = "<b>%s</b>\n%b"
+    alignment = left
+    # Align message text vertically
+    vertical_alignment = top
+    # Show age of message if message is older than x seconds
+    show_age_threshold = -1
+    # Split notifications into multiple lines
+    word_wrap = yes
+    # If message too long, add ellipsize to...
+    ellipsize = end
+    # Ignore newlines in notifications
+    ignore_newline = no
+    # Stack duplicate notifications
+    stack_duplicates = true
+    # Hide number of duplicate notifications
+    hide_duplicate_count = true
+    # Show indicatiors  for urls and actions
+    show_indicators = yes
+
+    ### Icons ###
+    default_icon = ~/.config/dunst/icons/notification.png
+    icon_position = left
+    min_icon_size = 20
+    max_icon_size = 36
+
+    ### History ###
+
+    # Length of history
+    history_length = 100
+
+    ### Misc ###
+
+    # Dmenu path
+    dmenu = /usr/bin/rofi -p dunst:
+    # Browser
+    browser = /usr/bin/firefox -new-tab
+    # Always run scripts
+    always_run_script = true
+    # Title of notification
+    title = Dunst
+    # Notification class
+    class = Dunst
+    # Print notification on startup
+    startup_notification = false
+    # Dunst verbosity
+    verbosity = mesg
+    # Corner radius of dunst
+    corner_radius = 12
+    # Ignore dbus closeNotification message
+    ignore_dbusclose = false
+
+    ### Mouse ###
+
+    # Left click
+    mouse_left_click = close_current
+    # Middle click
+    mouse_middle_click = do_action
+    # Right click
+    mouse_right_click = close_all
+
+[shortcuts]
+
+    # Close one notification
+    close = ctrl+space
+    # Close all notifications
+    close_all = ctrl+shift+space
+
+[urgency_normal]
+
+    # Normal urgency notifications
+    background = "#edf3f8"
+    foreground = "#1a1614"
+    frame_color = "#b0c6db"
+    timeout = 6
+
+
+
+[urgency_low]
+    background = "#f8fafb"
+    foreground = "#6a7e8e"
+    frame_color = "#c4d6e6"
+    timeout = 5
+
+
+
+[urgency_critical]
+
+    # High urgency notifications
+    foreground = "#ffffff"
+    background = "#c45040"
+    frame_color = "#a73a30"
+    timeout = 0
+    default_icon = ~/.config/dunst/icons/yellow_critical_alert.png

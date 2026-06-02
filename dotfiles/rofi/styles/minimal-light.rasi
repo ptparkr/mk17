@@ -1,0 +1,203 @@
+/* =======================================================
+   ROFI — Forge
+   Hot metal cooling. Rust is heat, everything else is steel.
+   ======================================================= */
+
+/* Block 1 — raw palette */
+* {
+    bg:      #1c1a18;   /* cold forge dark            */
+    bg-alt:  #242220;   /* lifted surface             */
+    bg-warm: #2e2520;   /* ember-warmed panel         */
+    fg:      #d4c9b8;   /* aged parchment white       */
+    fg-dim:  #6b5f52;   /* cooled ash                 */
+    accent:  #c46828;   /* rust — the only heat       */
+    active:  #8a6a3a;   /* smoldering ember           */
+    urgent:  #a83428;   /* deep red heat              */
+    select:  #3d2810;   /* rust shadow                */
+}
+
+configuration {
+    modi:                  "drun,run,filebrowser,window";
+    show-icons:            true;
+    display-drun:          "Apps";
+    display-run:           "Run";
+    display-filebrowser:   "Files";
+    display-window:        "Window";
+    drun-display-format:   "{name}";
+    window-format:         "{w} · {c} · {t}";
+}
+
+/* Block 2 — semantic assignments */
+* {
+    font:            "JetBrainsMono Nerd Font 10";
+    background:      #1c1a18;
+    background-alt:  #242220;
+    foreground:      #d4c9b8;
+    selected:        #c46828;
+    active:          #8a6a3a;
+    urgent:          #a83428;
+}
+
+window {
+    transparency:    "real";
+    location:        center;
+    anchor:          center;
+    fullscreen:      false;
+    width:           460px;
+    x-offset:        0px;
+    y-offset:        0px;
+    enabled:         true;
+    border-radius:   8px;
+    /* Top border is the heat stripe — 3px rust, nothing else */
+    border:          3px 0px 0px 0px;
+    border-color:    #c46828;
+    background-color: #1c1a18;
+    cursor:          "default";
+}
+
+mainbox {
+    enabled:          true;
+    spacing:          0px;
+    padding:          0px;
+    background-color: transparent;
+    orientation:      vertical;
+    children:         [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:          true;
+    spacing:          8px;
+    padding:          14px 12px;
+    border-radius:    0px;
+    /* Warmer than the window — close to the heat source */
+    background-color: #2e2520;
+    text-color:       #d4c9b8;
+    children:         [ "textbox-prompt-colon", "entry" ];
+    border:           0px 0px 1px 0px;
+    border-color:     #3d2810;
+}
+
+textbox-prompt-colon {
+    enabled:          true;
+    expand:           false;
+    str:              "▸";
+    background-color: transparent;
+    text-color:       #c46828;
+}
+
+entry {
+    enabled:          true;
+    background-color: transparent;
+    text-color:       #d4c9b8;
+    cursor:           text;
+    placeholder:      "search";
+    placeholder-color: #6b5f52;
+}
+
+mode-switcher {
+    enabled:          false;
+}
+
+listview {
+    enabled:          true;
+    columns:          1;
+    lines:            7;
+    cycle:            true;
+    dynamic:          true;
+    scrollbar:        false;
+    layout:           vertical;
+    reverse:          false;
+    fixed-height:     true;
+    fixed-columns:    true;
+    spacing:          0px;
+    padding:          6px 0px;
+    background-color: transparent;
+    text-color:       #d4c9b8;
+    cursor:           "default";
+}
+
+element {
+    enabled:          true;
+    spacing:          10px;
+    padding:          7px 12px;
+    border-radius:    0px;
+    background-color: transparent;
+    text-color:       #d4c9b8;
+    cursor:           pointer;
+}
+
+element normal.normal {
+    background-color: transparent;
+    text-color:       #d4c9b8;
+}
+
+element normal.urgent {
+    background-color: transparent;
+    text-color:       #a83428;
+}
+
+element normal.active {
+    background-color: transparent;
+    text-color:       #8a6a3a;
+}
+
+element selected.normal {
+    /* Rust shadow behind, rust left bar via icon column shift */
+    background-color: #3d2810;
+    text-color:       #c46828;
+    border:           0px 0px 0px 2px;
+    border-color:     #c46828;
+}
+
+element selected.urgent {
+    background-color: #3d1010;
+    text-color:       #a83428;
+    border:           0px 0px 0px 2px;
+    border-color:     #a83428;
+}
+
+element selected.active {
+    background-color: #2e2510;
+    text-color:       #8a6a3a;
+    border:           0px 0px 0px 2px;
+    border-color:     #8a6a3a;
+}
+
+element-icon {
+    background-color: transparent;
+    text-color:       inherit;
+    size:             22px;
+    cursor:           inherit;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    cursor:           inherit;
+    vertical-align:   0.5;
+    horizontal-align: 0.0;
+}
+
+message {
+    padding:          8px 12px;
+    background-color: transparent;
+    border:           1px 0px 0px 0px;
+    border-color:     #3d2810;
+}
+
+textbox {
+    padding:          8px 12px;
+    border-radius:    4px;
+    background-color: #242220;
+    text-color:       #d4c9b8;
+    vertical-align:   0.5;
+    horizontal-align: 0.0;
+}
+
+error-message {
+    padding:          10px 12px;
+    border-radius:    4px;
+    background-color: #3d1010;
+    text-color:       #a83428;
+}
+ 

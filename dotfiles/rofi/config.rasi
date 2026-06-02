@@ -1,0 +1,11 @@
+configuration {
+    modi: "drun,run,filebrowser,window";
+    show-icons: true;
+    fuzzy: true;
+    case-sensitive: false;
+    display-drun: "Apps";
+    display-run: "Run";
+    display-filebrowser: "Files";
+    display-window: "Window";
+    filebrowser-directory: "~";
+}

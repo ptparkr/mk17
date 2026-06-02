@@ -1,0 +1,11 @@
+/* Theme: Tokyo Night - Minimal */
+@define-color background      rgba(26, 27, 38, 0.7);
+@define-color text            #a9b1d6;
+@define-color workspace-bg   rgba(26, 27, 38, 0.7);
+@define-color workspace-fg   #a9b1d6;
+@define-color workspace-empty-fg #565f89;
+@define-color module-bg      rgba(26, 27, 38, 0.6);
+@define-color accent          #7aa2f7;
+@define-color good            #9ece6a;
+@define-color warning         #e0af68;
+@define-color critical        #f7768e;
