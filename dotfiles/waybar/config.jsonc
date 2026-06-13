@@ -61,8 +61,10 @@
       // Terminal
       "~": "  Terminal",
       "zsh": "  Terminal",
-      "kitty": "  Terminal",
-
+      "kitty": "  Terminal",     
+      "Alacritty": "  Terminal",
+       "vedhan@mk17:~": "  Terminal",
+            
       "tmux(.*)": 
         "<span foreground='#a6e3a1'> </span> Tmux",
 
@@ -77,6 +79,8 @@
         "<span foreground='#fab387'>󰺕 </span> Zen Browser",
       "(.*) — Zen Browser": 
         "<span foreground='#fab387'>󰺕 </span> $1",
+        
+        "(.*) - Helium": "<span foreground='#60B5FF'> </span> $1",
 
       // Development
 
@@ -85,6 +89,15 @@
       "(.*)Visual Studio Code": 
         "<span foreground='#89b4fa'>󰨞 </span> Visual Studio Code",
 
+            "(.*)Cursor": 
+        "<span foreground='#aaaaaa'> </span> Cursor",
+        
+        "(.*)OpenCode": 
+        "<span foreground='#aaaaaa'> </span> OpenCode",
+        
+        "OC (.*)": 
+        "<span foreground='#aaaaaa'> </span> OpenCode",
+        
       "nvim": 
         "<span foreground='#a6e3a1'> </span> Neovim",
       "nvim (.*)": 
@@ -95,7 +108,7 @@
       "vim (.*)": 
         "<span foreground='#a6e3a1'> </span> $1",
 
-      // Media
+      // Essential
 
       "(.*)Spotify": 
         "<span foreground='#a6e3a1'> </span> Spotify",
@@ -112,6 +125,22 @@
 
       "(.*) - mpv": 
         "<span foreground='#cba6f7'> </span> $1",
+        
+        "(.*) - Thunar": 
+        "<span foreground='#a6adc8'> </span> Thunar",
+        
+        "Yazi(.*)": 
+        "<span foreground='#a6adc8'> </span> Yazi",
+        
+        
+        "Home(.*)": 
+        "<span foreground='#aaaaaa'>󰅟 </span> Obsidian",
+        
+        "Proton VPN(.*)": 
+        "<span foreground='#aaaaaa'>󰒃 </span> Proton VPN",
+        
+        "Foliate(.*)": 
+        "<span foreground='#f38ba8'>󰂺 </span> Foliate",
 
       "qView": "  qView",
 
@@ -130,8 +159,8 @@
 
       // Documents
 
-      "ONLYOFFICE Desktop Editors": 
-        "<span foreground='#f38ba8'> </span> OnlyOffice Desktop",
+      "ONLYOFFICE": 
+        "<span foreground='#f38ba8'> </span> OnlyOffice",
 
       "(.*).docx": 
         "<span foreground='#89b4fa'> </span> $1.docx",
