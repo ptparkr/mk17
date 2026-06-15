@@ -1,3 +1,5 @@
+export PATH="$HOME/.npm-global/bin:$PATH"
+export PATH="/usr/bin:$PATH"
 # ~/.bashrc
 #
 
@@ -24,11 +26,12 @@ alias fm="yazi"
 
 alias stat="btop"
 
+alias hypr="start-hyprland"
+
 ##################################
 ### custom functions
 ff() {
   clear
-  fastfetch
 }
 
 quote() {
@@ -66,14 +69,30 @@ run_pgadmin() {
   python3 web/pgAdmin4.py
 }
 
+# ── Odysseus server ──
+odys() {
+  cd /home/vedhan/odysseus
+  python3 -m venv venv
+  source venv/bin/activate
+  python -m uvicorn app:app --host 127.0.0.1 --port 7000
+}
+
 eval "$(starship init bash)"
 # Set up fzf key bindings and fuzzy completion
 #eval "$(fzf --bash)"
 
 # Execute on shell load
-
 neofetch
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
+
+# ── CLI scripts ──
+CLI_DIR="/home/vedhan/Downloads/Lib/2. Areas/CLI"
+
+idvsrv() { (cd "$CLI_DIR" && python3 ideaverse_server.py "$@"); }
+synth2.5() { (cd "$CLI_DIR" && python3 synth2.5.py "$@"); }
+synth3.5() { (cd "$CLI_DIR" && python3 synth3.5.py "$@"); }
+thinkr1() { (cd "$CLI_DIR" && python3 thinkr1.py "$@"); }
+
 eval "$(starship init bash)"
