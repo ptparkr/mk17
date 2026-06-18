@@ -298,6 +298,7 @@
       "headphone": "󰋋",
       "headset": "󰋋"
     },
+    
     "tooltip-format": "Device: {desc}",
     "on-click": "~/.config/waybar/scripts/volume-control.sh -o m",
     "on-click-middle": "bash -lc 'pavucontrol'",
@@ -305,7 +306,7 @@
     "on-scroll-up": "~/.config/waybar/scripts/volume-control.sh -o i",
     "on-scroll-down": "~/.config/waybar/scripts/volume-control.sh -o d",
     "min-length": 5,
-    "max-length": 5
+    "max-length": 6
   },
 
   "backlight": {
@@ -331,7 +332,7 @@
     "tooltip-format-charging": "Charging: {time}",
     "interval": 1,
     "min-length": 5,
-    "max-length": 5
+    "max-length": 6
   },
 
   "power-profiles-daemon": {
